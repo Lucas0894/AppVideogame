@@ -1,0 +1,26 @@
+.list{
+    display: inline-block;
+    padding: 0;
+    margin: 20px;
+    text-decoration: none;
+}
+
+.lis{
+    display:inline-block;
+	margin-right:10px;
+}
+
+.ac{
+    display:block;
+	padding:10px 20px;
+	color:#fff;
+	background:#024959;
+	text-decoration: none;
+    border-radius: 5px;
+}
+
+
+.ac:hover {
+	background:#037E8C;
+    cursor: pointer;
+}

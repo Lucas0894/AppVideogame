@@ -1,0 +1,33 @@
+.contentedor{ 
+    
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.8);
+    box-shadow: 0 0 10px #000;
+    transition: 0.7s;
+    
+    
+}
+
+.contentedor:hover{
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgb(131, 109, 184);
+}
+
+img{
+    width: 300px;
+    height: 200px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px #000;
+
+}
+
+h3{
+    color: white;
+
+}
+
+h5{
+    color: white;
+}

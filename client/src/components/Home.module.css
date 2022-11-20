@@ -1,0 +1,100 @@
+.central{
+  text-align: center;
+  
+}
+
+.card{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  
+
+}
+
+.Linketiqueta{
+  text-decoration: none;
+}
+
+
+
+.navbar{
+  
+  display: flex;
+  align-items: center;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+  position: fixed;
+  top: 0%;
+  width: 100%;
+
+}
+
+h1{
+  padding: 0px;
+  margin: 0px;
+}
+
+.selector{
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  background-color: #333;
+  border: none;
+  cursor: pointer;
+}
+
+.options{
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.selector:hover{
+  background-color: #111;
+  
+}
+
+
+.buttonBar{
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  background-color: #333;
+  border: none;
+  cursor: pointer;
+}
+
+.buttonBar:hover{
+  background-color: #111;
+}
+
+.Buttonback{
+  margin:20px;
+  padding: 20px;
+  color: white;
+  box-shadow: 0 0 20px #000;
+  width: 10%;
+  background-color: rgb(112, 40, 40);
+  border-radius: 15px;
+  font-family: 'Games', sans-serif;
+  font-size: 30px;
+  transition: 0.7s;
+  border: none;
+}
+
+.Buttonback:hover{
+  box-shadow: 0 0 40px rgb(194, 192, 209);
+  transform: scale(1.05);
+  background-color: rgb(37, 35, 119);
+  cursor: pointer;
+}

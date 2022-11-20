@@ -1,0 +1,41 @@
+.bodyLanding{
+    text-align: center;
+    background-image: url("https://w.wallha.com/ws/13/v9ijn3qy.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+
+.tituloPrincipal{
+    margin: 30px;
+    padding: 40px;
+    color: white;
+    font-size: 100px;
+    text-shadow: 0 0 20px #000;
+    font-family: 'Games', sans-serif;
+}
+
+.ButtonStart{
+    margin:80px;
+    padding: 20px;
+    color: white;
+    box-shadow: 0 0 20px #000;
+    width: 10%;
+    background-color: rgb(112, 40, 40);
+    border-radius: 15px;
+    font-family: 'Games', sans-serif;
+    font-size: 30px;
+    transition: 0.7s;
+    border: none;
+    
+}
+
+.ButtonStart:hover{
+    box-shadow: 0 0 40px rgb(194, 192, 209);
+    transform: scale(1.05);
+    background-color: rgb(37, 35, 119);
+    cursor: pointer;
+}

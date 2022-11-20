@@ -1,0 +1,138 @@
+.errors{
+    color: red;
+    font-size: 12px;
+}
+
+.inputs{
+    border: none;
+    border-radius: 5px; 
+    color: black;  
+    width: 50%;
+    height: 20px;
+    background-color: bisque;
+    box-shadow: 0 0 20px #000;
+    
+}
+
+.divs{
+    padding: 5px 5px 5px 5px;
+    text-align: left
+    ;
+}
+
+.buttons{
+    border: none;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 10px;
+    box-shadow: 0 0 20px #000;
+    background-color: rgb(199, 94, 33);
+    color: white;
+    font-family: 'Games', sans-serif;
+    font-size: 30px;
+    transition: 0.7s;
+}
+
+.buttons:hover{
+  box-shadow: 0 0 40px rgb(194, 192, 209);
+  transform: scale(1.05);
+  background-color: rgb(37, 35, 119);
+  cursor: pointer;
+}
+
+.transparente{
+   text-align: center;
+   border-radius: 5px;
+   margin: 10px 500px 40px 500px;
+   background-color: rgba(0, 0, 0, 0.8);
+   box-shadow: 0 0 20px #000;
+   
+   
+    }
+
+.textarea{
+    height: 200px;
+    width: 99%;
+    border-radius: 5px; 
+    resize: none;
+    background-color: bisque;
+    border: none
+}
+
+.general{
+    background-image: url('https://w.wallha.com/ws/2/SnW8CqbQ.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+}
+
+.headertext{
+    color: white;
+    font-size: 32px;
+	font-weight: 600;
+	padding-bottom: 15px;
+	text-align: center;
+    font-family: 'Games', sans-serif;
+}
+
+.headerSubtext{
+    color: white;
+    font-size: 20px;
+	padding-bottom: 30px;
+	text-align: center;
+    font-family: 'Games', sans-serif;
+    margin: 3px 3px 3px 3px;
+    
+}
+
+.labels{
+    color: white;
+    margin: 2px 2px 2px 2px;
+    font-family: 'Games', sans-serif;
+    text-align: justify;
+}
+
+.deletee{
+   display: inline-table;
+   color: aliceblue;
+   margin: 2px;
+}
+
+.deleteeInputs{
+    display: inline-table;
+    padding: 2px;
+    margin: 2px;
+    font-size: 15px;
+    font-family: 'Games', sans-serif;
+}
+
+.genresInputs{
+    color: white;
+    background-color: rgb(155, 83, 83);
+    border-radius: 5px;
+    padding: 3px 3px 3px 3px;
+    border: none;
+    font-family: 'Games', sans-serif;
+    transition: 0.7s;
+
+}
+
+.genresInputs:hover{
+    background-color: rgb(74, 63, 177);
+}
+
+.buttonx{
+    padding: 7px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    background-color: rgb(155, 83, 83);
+    transition: 0.7s;
+    
+}
+
+.buttonx:hover{
+    background-color:rgb(74, 63, 177)
+}
