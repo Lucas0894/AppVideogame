@@ -1,195 +1,336 @@
-![HenryLogo](https://d31uz8lwfmyn8g.cloudfront.net/Assets/logo-henry-white-lg.png)
+# 🎮 Videogame App
 
-# Individual Project - Henry Videogames
+Aplicación web de videojuegos desarrollada con React, Redux, Node.js, Express, Sequelize y PostgreSQL.
 
-<p align="right">
-  <img height="200" src="./videogame.png" />
-</p>
+Videogame App permite explorar videojuegos, buscar títulos por nombre, filtrar por género y origen, ordenar resultados, consultar información detallada y agregar nuevos videojuegos a la plataforma.
 
-## Objetivos del Proyecto
+La aplicación combina información obtenida desde una API externa con videojuegos creados y almacenados en una base de datos propia.
 
-- Construir una App utlizando React, Redux, Node y Sequelize.
-- Afirmar y conectar los conceptos aprendidos en la carrera.
-- Aprender mejores prácticas.
-- Aprender y practicar el workflow de GIT.
-- Usar y practicar testing.
+---
 
-## Horarios y Fechas
+## ✨ Funcionalidades
 
-El proyecto tendrá una duración máxima de tres semanas. En el caso de que completan todas las tareas antes de dicho lapso podrán avisar a su Instructor para coordinar una fecha de presentación del trabajo (DEMO).
+### 🏠 Inicio
 
-## Comenzando
+- Landing page de presentación.
+- Imagen representativa de la aplicación.
+- Acceso directo al listado principal de videojuegos.
 
- 1. Forkear el repositorio para tener una copia del mismo en sus cuentas
- 2. Clonar el repositorio en sus computadoras para comenzar a trabajar
+### 🔎 Búsqueda
 
-Tendrán un `boilerplate` con la estructura general tanto del servidor como de cliente.
+- Búsqueda de videojuegos por nombre.
+- Integración con RAWG API.
+- Visualización de videojuegos provenientes de la API y de la base de datos.
+- Manejo de búsquedas sin resultados.
 
-__IMPORTANTE:__ Es necesario contar minimamente con la última versión estable de Node y NPM. Asegurarse de contar con ella para poder instalar correctamente las dependecias necesarias para correr el proyecto.
+### 🎮 Exploración de videojuegos
 
-Actualmente las versiónes necesarias son:
+El listado principal permite visualizar información relevante de cada videojuego:
 
-- __Node__: 12.18.3 o mayor
-- __NPM__: 6.14.16 o mayor
+- Imagen.
+- Nombre.
+- Géneros.
 
-Para verificar que versión tienen instalada:
+Los videojuegos pueden provenir tanto de RAWG como de la base de datos propia.
 
-```bash
-node -v
-npm -v
+### 🧩 Filtros
+
+Los videojuegos pueden filtrarse según diferentes criterios:
+
+- Género.
+- Videojuegos provenientes de la API.
+- Videojuegos creados dentro de la aplicación.
+
+### ↕️ Ordenamiento
+
+La aplicación permite ordenar los videojuegos según diferentes criterios:
+
+- Nombre de A-Z.
+- Nombre de Z-A.
+- Rating de menor a mayor.
+- Rating de mayor a menor.
+
+### 📄 Paginación
+
+Sistema de paginación para organizar los resultados y facilitar la navegación entre los diferentes videojuegos.
+
+Cada página muestra un conjunto limitado de videojuegos para mejorar la experiencia de usuario y el rendimiento de la aplicación.
+
+### 📖 Detalle de videojuego
+
+Cada videojuego cuenta con una vista detallada que incluye:
+
+- Imagen.
+- Nombre.
+- Géneros.
+- Descripción.
+- Fecha de lanzamiento.
+- Rating.
+- Plataformas.
+
+### ➕ Crear videojuegos
+
+Los usuarios pueden agregar nuevos videojuegos mediante un formulario controlado.
+
+El formulario permite ingresar:
+
+- Nombre.
+- Descripción.
+- Fecha de lanzamiento.
+- Rating.
+- Uno o varios géneros.
+- Una o varias plataformas.
+
+Los datos son validados mediante JavaScript antes de ser enviados al backend.
+
+Los videojuegos creados quedan almacenados en PostgreSQL y posteriormente se muestran junto con los videojuegos obtenidos desde RAWG.
+
+---
+
+## 🌐 Integración con RAWG API
+
+La aplicación utiliza [RAWG Video Games Database API](https://rawg.io/apidocs) para obtener información sobre videojuegos.
+
+Los datos obtenidos son procesados dentro de la aplicación para implementar funcionalidades como:
+
+- Búsqueda.
+- Filtrado.
+- Ordenamiento.
+- Paginación.
+- Consulta de detalles.
+
+La aplicación combina los datos externos con los videojuegos almacenados en su propia base de datos.
+
+---
+
+## 🗄️ Base de datos
+
+La aplicación utiliza PostgreSQL como sistema de almacenamiento y Sequelize como ORM.
+
+### Videojuego
+
+Cada videojuego almacena información como:
+
+| Campo | Descripción |
+|---|---|
+| ID | Identificador del videojuego |
+| Nombre | Nombre del videojuego |
+| Descripción | Información del videojuego |
+| Fecha de lanzamiento | Fecha de lanzamiento |
+| Rating | Valoración del videojuego |
+| Plataformas | Plataformas disponibles |
+
+### Género
+
+Cada género contiene:
+
+| Campo | Descripción |
+|---|---|
+| ID | Identificador del género |
+| Nombre | Nombre del género |
+
+Los videojuegos y géneros mantienen una relación muchos a muchos, permitiendo que un videojuego pueda pertenecer a diferentes géneros.
+
+Por ejemplo:
+
+`Counter Strike → Shooter + Action`
+
+---
+
+## 🔌 Backend
+
+El backend fue desarrollado con Node.js y Express mediante una API REST.
+
+### Endpoints principales
+
+| Método | Endpoint | Descripción |
+|:---:|---|---|
+| `GET` | `/videogames` | Obtiene el listado de videojuegos |
+| `GET` | `/videogames?name=...` | Busca videojuegos por nombre |
+| `GET` | `/videogame/:id` | Obtiene el detalle de un videojuego |
+| `POST` | `/videogames` | Crea un nuevo videojuego |
+| `GET` | `/genres` | Obtiene los géneros disponibles |
+
+---
+
+## ⚛️ Frontend
+
+El frontend está desarrollado con React y Redux.
+
+La aplicación cuenta con diferentes vistas:
+
+- Landing Page.
+- Home.
+- Detalle de videojuego.
+- Creación de videojuego.
+
+Redux se utiliza para gestionar el estado global de la aplicación y facilitar el manejo de:
+
+- Videojuegos.
+- Búsquedas.
+- Filtros.
+- Ordenamientos.
+- Géneros.
+- Paginación.
+
+---
+
+## 🛠️ Tecnologías
+
+### Frontend
+
+- React
+- Redux
+- React Router
+- JavaScript
+- CSS
+
+### Backend
+
+- Node.js
+- Express
+- Sequelize
+- PostgreSQL
+
+### API
+
+- RAWG API
+
+### Herramientas
+
+- Git
+- GitHub
+- Postman
+
+### Testing
+
+- Testing de componentes del frontend.
+- Testing de rutas del backend.
+- Testing de modelos de base de datos.
+
+---
+
+## 📂 Estructura del proyecto
+
+```text
+Videogame-App/
+│
+├── client/
+│   └── src/
+│       ├── components/
+│       ├── views/
+│       ├── redux/
+│       └── ...
+│
+├── api/
+│   └── src/
+│       ├── routes/
+│       ├── controllers/
+│       ├── models/
+│       └── ...
+│
+└── README.md
 ```
 
-__ACLARACIÓN:__ Las dependencias actuales se encuentran en las versiones que venimos trabajando durante el bootcamp.
+---
 
-Versiones:
+## ⚙️ Instalación
 
-- __react__: 17.0.1
-- __react-dom__: 17.0.1
-- __react-router-dom__: 5.2.0
-- __redux__: 4.0.5
-- __react-redux__: 7.2.3
+### Requisitos
 
-Está permitido, __bajo su responsabilidad__, actualizar las dependencias a versiones más actuales.
+Antes de comenzar, asegurate de tener instalado:
 
-> __IMPORTANTE:__ Versiones mas actuales podrían presentar configuraciones diferentes respecto a las versiones en las que venimos trabajando durante el bootcamp.
+- Node.js
+- npm
+- PostgreSQL
 
-## BoilerPlate
+### 1. Clonar el repositorio
 
-El boilerplate cuenta con dos carpetas: `api` y `client`. En estas carpetas estará el código del back-end y el front-end respectivamente.
+```bash
+git clone <URL_DEL_REPOSITORIO>
+```
 
-En `api` crear un archivo llamado: `.env` que tenga la siguiente forma:
+### 2. Ingresar al proyecto
+
+```bash
+cd Videogame-App
+```
+
+### 3. Instalar dependencias del backend
+
+```bash
+cd api
+npm install
+```
+
+### 4. Instalar dependencias del frontend
+
+```bash
+cd ../client
+npm install
+```
+
+### 5. Configurar la base de datos
+
+Crear una base de datos PostgreSQL llamada:
+
+```text
+videogames
+```
+
+### 6. Configurar variables de entorno
+
+Crear un archivo `.env` dentro de la carpeta `api`:
 
 ```env
 DB_USER=usuariodepostgres
 DB_PASSWORD=passwordDePostgres
 DB_HOST=localhost
+DB_NAME=videogames
+DB_PORT=5432
+
+RAWG_API_KEY=tu_api_key
 ```
 
-Reemplazar `usuariodepostgres` y `passwordDePostgres` con tus propias credenciales para conectarte a postgres. Este archivo va ser ignorado en la subida a github, ya que contiene información sensible (las credenciales).
+Reemplazá los valores correspondientes con tus credenciales de PostgreSQL y tu API Key de RAWG.
 
-Adicionalmente será necesario que creen desde psql una base de datos llamada `videogames`
+> El archivo `.env` contiene información sensible y no debe subirse al repositorio.
 
-El contenido de `client` fue creado usando: Create React App.
+### 7. Ejecutar el backend
 
-## Enunciado
+Desde la carpeta `api`:
 
-La idea general es crear una aplicación en la cual se puedan ver los distintos videojuegos disponibles junto con información relevante de los mismos utilizando la api externa [rawg](https://rawg.io/apidocs) y a partir de ella poder, entre otras cosas:
+```bash
+npm start
+```
 
-- Buscar videjuegos
-- Filtrarlos / Ordenarlos
-- Agregar nuevos videojuegos
+### 8. Ejecutar el frontend
 
-__IMPORTANTE__: Para poder utilizar esta API externa es necesario crearse una cuenta para obtener una API Key que luego debera ser incluida en todos los request que hagamos a rawg simplemente agregando `?key={YOUR_API_KEY}` al final de cada endpoint. Agregar la clave en el archivo `.env` para que la misma no se suba al repositorio por cuestiones de seguridad y utilizarla desde allí.
+Abrí una nueva terminal y ejecutá:
 
-__IMPORTANTE__: Para las funcionalidades de filtrado y ordenamiento NO pueden utilizar los endpoints de la API externa que ya devuelven los resultados filtrados u ordenados sino que deben realizarlo ustedes mismos. En particular alguno de los ordenamientos o filtrados debe si o si realizarse desde el frontend.
+```bash
+cd client
+npm start
+```
 
-### Únicos Endpoints/Flags que pueden utilizar
+La aplicación estará disponible en el puerto configurado por el servidor de desarrollo.
 
-- GET <https://api.rawg.io/api/games>
-- GET <https://api.rawg.io/api/games?search={game}>
-- GET <https://api.rawg.io/api/genres>
-- GET <https://api.rawg.io/api/games/{id}>
+---
 
-### Requerimientos mínimos
+## 🧪 Testing
 
-A continuación se detallaran los requerimientos mínimos para la aprobación del proyecto individial. Aquellos que deseen agregar más funcionalidades podrán hacerlo. En cuanto al diseño visual no va a haber wireframes ni prototipos prefijados sino que tendrán libertad de hacerlo a su gusto pero tienen que aplicar los conocimientos de estilos vistos en el curso para que quede agradable a la vista.
+El proyecto incluye pruebas para diferentes partes de la aplicación:
 
-__IMPORTANTE__: No se permitirá utilizar librerías externas para aplicar estilos a la aplicación. Tendrán que utilizar CSS con algunas de las opciones que vimos en dicha clase (CSS puro, CSS Modules o Styled Components)
+- Componentes del frontend.
+- Rutas del backend.
+- Modelos de la base de datos.
 
-#### Tecnologías necesarias
+---
 
-- [ ] React
-- [ ] Redux
-- [ ] Express
-- [ ] Sequelize - Postgres
+## 🎯 Sobre el proyecto
 
-## Frontend
+Videogame App es un proyecto Full Stack que integra frontend, backend, base de datos y una API externa.
 
-Se debe desarrollar una aplicación de React/Redux que contenga las siguientes pantallas/rutas.
+El proyecto combina React y Redux para construir una interfaz dinámica, Node.js y Express para desarrollar una API REST, Sequelize y PostgreSQL para la persistencia y las relaciones entre entidades, y RAWG API para obtener información sobre videojuegos.
 
-__Pagina inicial__: deben armar una landing page con
-
-- [ ] Alguna imagen de fondo representativa al proyecto
-- [ ] Botón para ingresar al home (`Ruta principal`)
-
-__Ruta principal__: debe contener
-
-- [ ] Input de búsqueda para encontrar videojuegos por nombre
-- [ ] Área donde se verá el listado de videojuegos. Deberá mostrar su:
-  - Imagen
-  - Nombre
-  - Géneros
-- [ ] Botones/Opciones para filtrar por género y por videojuego existente o agregado por nosotros
-- [ ] Botones/Opciones para ordenar tanto ascendentemente como descendentemente los videojuegos por orden alfabético y por rating
-- [ ] Paginado para ir buscando y mostrando los siguientes videojuegos, 15 juegos por pagina, mostrando los primeros 15 en la primer pagina.
-
-__IMPORTANTE__: Dentro de la Ruta Principal se deben mostrar tanto los videjuegos traidos desde la API como así también los de la base de datos. Debido a que en la API existen alrededor de 500 mil juegos, por cuestiones de performance pueden tomar la simplificación de obtener y paginar los primeras 100.
-
-__Ruta de detalle de videojuego__: debe contener
-
-- [ ] Los campos mostrados en la ruta principal para cada videojuegos (imagen, nombre, y géneros)
-- [ ] Descripción
-- [ ] Fecha de lanzamiento
-- [ ] Rating
-- [ ] Plataformas
-
-__Ruta de creación de videojuegos__: debe contener
-
-- [ ] Un formulario __controlado con JavaScript__ con los siguientes campos:
-  - Nombre
-  - Descripción
-  - Fecha de lanzamiento
-  - Rating
-- [ ] Posibilidad de seleccionar/agregar varios géneros
-- [ ] Posibilidad de seleccionar/agregar varias plataformas
-- [ ] Botón/Opción para crear un nuevo videojuego
-
-> Es requisito que el formulario de creación esté validado con JavaScript y no sólo con validaciones HTML. Pueden agregar las validaciones que consideren. Por ejemplo: Que el nombre del juego no pueda contener algunos símbolos, que el rating no pueda exceder determinado valor, etc.
-
-## Base de datos
-
-El modelo de la base de datos deberá tener las siguientes entidades (Aquellas propiedades marcadas con asterísco deben ser obligatorias):
-
-- [ ] Videojuego con las siguientes propiedades:
-  - ID: * No puede ser un ID de un videojuego ya existente en la API rawg
-  - Nombre *
-  - Descripción *
-  - Fecha de lanzamiento
-  - Rating
-  - Plataformas *
-- [ ] Genero con las siguientes propiedades:
-  - ID
-  - Nombre
-
-La relación entre ambas entidades debe ser de muchos a muchos ya que un videojuego puede pertenecer a varios géneros en simultaneo y, a su vez, un género puede contener múltiples videojuegos distintos. Un ejemplo sería el juego `Counter Strike` pertenece a los géneros Shooter y Action al mismo tiempo. Pero a su vez existen otros videojuegos considerados como Shooter o como Action.
-
-__IMPORTANTE__: Pensar como modelar los IDs de los videojuegos en la base de datos. Existen distintas formas correctas de hacerlo pero tener en cuenta que cuando hagamos click en algun videojuego, este puede provenir de la API o de la Base de Datos por lo que cuando muestre su detalle no debería haber ambigüedad en cual se debería mostrar. Por ejemplo si en la API el videojuego `Age of Empires II: Age of Kings` tiene id = 1 y en nuestra base de datos creamos un nuevo videojuego `Age of Henry` con id = 1, ver la forma de diferenciarlos cuando querramos acceder al detalle del mismo.
-
-## Backend
-
-Se debe desarrollar un servidor en Node/Express con las siguientes rutas:
-
-__IMPORTANTE__: No está permitido utilizar los filtrados, ordenamientos y paginados brindados por la API externa, todas estas funcionalidades tienen que implementarlas ustedes.
-
-- [ ] __GET /videogames__:
-  - Obtener un listado de los videojuegos
-  - Debe devolver solo los datos necesarios para la ruta principal
-- [ ] __GET /videogames?name="..."__:
-  - Obtener un listado de las primeros 15 videojuegos que contengan la palabra ingresada como query parameter
-  - Si no existe ningún videojuego mostrar un mensaje adecuado
-- [ ] __GET /videogame/{idVideogame}__:
-  - Obtener el detalle de un videojuego en particular
-  - Debe traer solo los datos pedidos en la ruta de detalle de videojuego
-  - Incluir los géneros asociados
-- [ ] __POST /videogames__:
-  - Recibe los datos recolectados desde el formulario controlado de la ruta de creación de videojuego por body
-  - Crea un videojuego en la base de datos, relacionado a sus géneros.
-- [ ] __GET /genres__:
-  - Obtener todos los tipos de géneros de videojuegos posibles
-  - En una primera instancia deberán traerlos desde rawg y guardarlos en su propia base de datos y luego ya utilizarlos desde allí
-
-## Testing
-
-- [ ] Al menos tener un componente del frontend con sus tests respectivos
-- [ ] Al menos tener una ruta del backend con sus tests respectivos
-- [ ] Al menos tener un modelo de la base de datos con sus tests respectivos
+Entre sus principales funcionalidades se encuentran la búsqueda de videojuegos, filtrado por género y origen, ordenamiento por nombre y rating, paginación, consulta de detalles y creación de nuevos videojuegos.
